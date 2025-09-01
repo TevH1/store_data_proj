@@ -1,0 +1,5 @@
+Aggregate  (cost=33.10..33.11 rows=1 width=32) (actual time=0.584..0.585 rows=1 loops=1)
+  ->  Seq Scan on fact_order_item_2017_01 fact_order_item  (cost=0.00..28.32 rows=955 width=12) (actual time=0.033..0.309 rows=955 loops=1)
+        Filter: ((date_key_purchase >= 20170101) AND (date_key_purchase <= 20170131))
+Planning Time: 4.042 ms
+Execution Time: 1.180 ms

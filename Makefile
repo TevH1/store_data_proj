@@ -4,3 +4,10 @@ DB?=postgresql:///olist
 schema: ; psql $(DB) -f sql/01_schema.sql
 load:   ; python scripts/load.py
 kpis:   ; psql $(DB) -c "REFRESH MATERIALIZED VIEW dw.mv_kpi_monthly; SELECT * FROM dw.mv_kpi_monthly ORDER BY year DESC, month DESC LIMIT 6;"
+
+
+.PHONY: queries bench
+queries: ; psql $(DB) -f sql/02_queries.sql
+bench:   ; scripts/bench.sh
+
+
